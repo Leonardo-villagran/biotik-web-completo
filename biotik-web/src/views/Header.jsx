@@ -18,7 +18,7 @@ export default function Header() {
                     Administración
                 </a></button>
                 <button className="custom-button">
-                <a href="http://web.biotico.cl:8080/odk-web/" target="_blank" rel="noopener noreferrer" className="button-link">
+                <a href="https://web.biotico.cl/odk-web/" target="_blank" rel="noopener noreferrer" className="button-link">
                     Gestión
                 </a>
                 </button>
