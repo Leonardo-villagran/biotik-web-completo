@@ -37,8 +37,18 @@ app.get('/datos', async (req, res) => {
 });
 
 // Puerto en el que se ejecutará el servidor
-const port = process.env.PORT || 5000;
+const back_port = process.env.BACK_PORT;
 
-app.listen(port, () => {
-    console.log(`Servidor escuchando en el puerto ${port}`);
+app.listen(back_port, () => {
+    console.log(`Servidor escuchando en el puerto ${back_port}`);
 });
+
+console.log("Imprimir variables de entorno");
+console.log(
+    {   host: process.env.DB_HOST,
+        db_user: process.env.DB_USER,
+        db_port: process.env.DB_PORT,
+        // password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME,
+        back_port: process.env.BACK_PORT
+    });

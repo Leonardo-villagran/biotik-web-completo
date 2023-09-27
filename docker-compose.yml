@@ -7,10 +7,12 @@ services:
   postgres-biotik:
     image: postgres:15.4-bullseye
     container_name: postgres-biotik
+    env_file:
+      - .env  # Cargar variables desde el archivo .env en la ruta base
     environment:
-      - POSTGRES_USER=odk_web
-      - POSTGRES_PASSWORD=vill1537
-      - POSTGRES_DB=biotik
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
       - ./pg_backup:/pg_backup
@@ -25,6 +27,14 @@ services:
     container_name: biotik-back
     env_file:
       - .env  # Cargar variables desde el archivo .env en la ruta base
+    environment:
+      - BACK_PORT=${BACK_PORT}
+      - DB_PORT=${DB_PORT}
+      - DB_HOST=${DB_HOST}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - JWT_SECRET=${JWT_SECRET}
     ports:
       - "5035:5000"
     networks:
@@ -36,11 +46,13 @@ services:
   pgadmin:
     image: dpage/pgadmin4:7.7
     container_name: pgadmin-biotik
+    env_file:
+      - .env  # Cargar variables desde el archivo .env en la ruta base
     environment:
-      - PGADMIN_DEFAULT_EMAIL=yonofui@legion.cl
-      - PGADMIN_DEFAULT_PASSWORD=vill1537
-      - PGADMIN_LISTEN_ADDRESS=0.0.0.0
-      - PGADMIN_SERVER_MODE=true
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+      - PGADMIN_LISTEN_ADDRESS=${PGADMIN_LISTEN_ADDRESS}
+      - PGADMIN_SERVER_MODE=${PGADMIN_SERVER_MODE}
     ports:
       - "8035:80"
     networks:
@@ -52,8 +64,6 @@ services:
     build:
       context: ./biotik-web
     container_name: biotik-web
-    environment:
-      - VITE_API_URL=https://back.biotik.cl/datos
     ports:
       - "3035:3000"
     networks:

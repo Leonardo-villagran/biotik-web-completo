@@ -12,6 +12,5 @@ biotik-web/package-lock.json
 
 #ruta principal
 .env
-pg_backup
 pgadmin_data
 postgres_data

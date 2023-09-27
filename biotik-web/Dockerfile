@@ -6,15 +6,23 @@ WORKDIR /app
 # Copiar los archivos necesarios y el package.json
 COPY package.json ./
 
+# Copiar el archivo .env
+COPY .env ./
+RUN cat .env
+
 # Instalar las dependencias
 RUN npm install
 
 # Copiar el resto de los archivos del frontend
 COPY . .
 
-RUN npm run build
+#ENV VITE_API_URL=http://localhost:5035/datos
+# ENV VITE_API_URL=$VITE_API_URL
 
-ENV VITE_API_URL=http://localhost:5035/datos
+# Cargar las variables de entorno desde el archivo .env
+# RUN set -o allexport; source .env; set +o allexport
+
+RUN npm run build
 
 EXPOSE 3000
 

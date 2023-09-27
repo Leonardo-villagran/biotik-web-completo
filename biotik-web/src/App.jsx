@@ -5,13 +5,15 @@ import Menu from './views/Menu';
 import Items from './components/Items';// Updated import statement to match correct casing
 import ScrollButton from './components/ScrollButton';
 
+
 import { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
 function App() {
 
-  const apiUrl = import.meta.env.VITE_API_URL || 'https://back.biotik.cl/datos';
+  // const apiUrl = import.meta.env.VITE_API_URL || 'https://back.biotik.cl/datos';
+  const apiUrl = import.meta.env.VITE_API_URL;
   
   const [data, setData] = useState([]);
 
