@@ -53,7 +53,7 @@ services:
       context: ./biotik-web
     container_name: biotik-web
     environment:
-      - VITE_API_URL=http://web.biotico.cl:5035/datos
+      - VITE_API_URL=https://back.biotik.cl/datos
     ports:
       - "3035:3000"
     networks:
