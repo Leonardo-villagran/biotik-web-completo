@@ -1,0 +1,182 @@
+
+/* Fondo negro */
+body {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+.container{
+  background-color: #000;
+  color: #fff;
+}
+p {
+  color: #fff; /* Color de texto blanco */
+}
+
+h1 {
+  color: #fff !important; /* Color de texto blanco */
+}
+
+/* Tarjetas con degradado */
+.card {
+  background: linear-gradient(to bottom, #333, #000);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+/* Estilo para los enlaces */
+a {
+  color: white !important; /* Color naranja */
+  text-decoration: none; /* Eliminar el subrayado */
+  cursor: pointer; /* Cambiar el cursor a un puntero */
+  background-color: transparent; /* Fondo transparente por defecto */
+
+}
+
+
+.header-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black; /* Cambia el color de fondo según tus preferencias */
+  padding: 5px; /* Ajusta el espaciado interior según tus preferencias */
+}
+
+.logo-left {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.logo-left img {
+  max-width: 100%;
+  height: auto;
+}
+
+.logo-text-right {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el contenido horizontalmente */
+}
+
+.logo-text-container img {
+  max-width: 100%; /* Ajusta el tamaño de la imagen del logo derecho */
+  max-height: 100%; /* Ajusta la altura de la imagen del logo derecho */
+}
+
+/* hero section*/
+.hero {
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.hero-nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-nav li {
+  margin: 0 20px;
+}
+
+.hero-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.hero-nav a:hover {
+  color: #ff9900; /* Cambia el color de resaltado al pasar el mouse */
+}
+
+.card.bg-gradient {
+  background: linear-gradient(to bottom, #f9f9f9, #040200); /* Cambia los colores según tus preferencias */
+  color: #fff;
+  text-align: center;
+  border: none; /* Elimina el borde de la card si lo deseas */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.card a:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Estilos para el botón "Ir arriba" */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #022513;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  background-color: #227d49;
+}
+
+.custom-button {
+
+  width: 120px; /* Ancho fijo deseado en píxeles */
+  padding: 5px 0; /* Espaciado interno del botón */
+  background-color: black; /* Color de fondo negro */
+  color: white; /* Color de texto blanco */
+  border: 2px solid white; /* Borde blanco de 2px */
+  border-radius: 10px; /* Bordes redondeados */
+  margin-right: 15px; /* Espacio a la derecha de 5px */
+}
+
+/* Agrega esta clase personalizada */
+.admin-gestion-buttons {
+  display: flex;
+  justify-content:center /* Esto separará los elementos en el espacio disponible */
+}
+
+.logo-text-right {
+  display: flex;
+  justify-content:space-around
+}
+
+.custom-button {
+  
+  background-color: black; /* Color de fondo predeterminado */
+  border: 2px solid white; /* Borde blanco predeterminado */
+  margin: 5px; /* Añade margen alrededor de los botones */
+  transition: background-color 0.3s, border-color 0.3s; /* Agrega transición de color de fondo y borde */
+  color: white; /* Color del texto en los botones */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  
+
+}
+
+.custom-button:hover {
+  background-color:#022513 ; /* Cambia el color de fondo al pasar el mouse */
+  border-color: white; /* Cambia el color del borde al pasar el mouse */
+}
+
+.button-link{
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+}
+

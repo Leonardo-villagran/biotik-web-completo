@@ -1,0 +1,25 @@
+biotik-web-completo
++---biotik-back
+    +---node_modules
+    +---src
+        +---config
+        +---middleware
+        +---index.js
+    +---Dockerfile
+    +---package.json
+    +---package-lock.json
+    +---dockerignore
++---biotik-web
+    +---dist
+    +---node_modules
+    +---public
+    +---src
+        +---assets
+        +---components
+        +---views
+        +---App.jsx
+        +---main.jsx
++---.gitignore
++---docker-compose.yml
+ 
+ 

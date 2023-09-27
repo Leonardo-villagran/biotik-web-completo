@@ -1,0 +1,63 @@
+version: '3.9'
+
+networks:
+  mi-red-biotik:
+
+services:
+  postgres-biotik:
+    image: postgres:15.4-bullseye
+    container_name: postgres-biotik
+    environment:
+      - POSTGRES_USER=odk_web
+      - POSTGRES_PASSWORD=vill1537
+      - POSTGRES_DB=biotik
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+      - ./pg_backup:/pg_backup
+    ports:
+      - "5435:5432"
+    networks:
+      - mi-red-biotik
+
+  biotik-back:
+    build:
+      context: ./biotik-back
+    container_name: biotik-back
+    env_file:
+      - .env  # Cargar variables desde el archivo .env en la ruta base
+    ports:
+      - "5035:5000"
+    networks:
+      - mi-red-biotik
+    depends_on:
+      - postgres-biotik
+
+
+  pgadmin:
+    image: dpage/pgadmin4:7.7
+    container_name: pgadmin-biotik
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=yonofui@legion.cl
+      - PGADMIN_DEFAULT_PASSWORD=vill1537
+      - PGADMIN_LISTEN_ADDRESS=0.0.0.0
+      - PGADMIN_SERVER_MODE=true
+    ports:
+      - "8035:80"
+    networks:
+      - mi-red-biotik
+    volumes:
+      - ./pgadmin_data:/var/lib/pgadmin
+
+  biotik-web:
+    build:
+      context: ./biotik-web
+    container_name: biotik-web
+    environment:
+      - VITE_API_URL=http://localhost:5035/datos
+    ports:
+      - "3035:3000"
+    networks:
+      - mi-red-biotik
+    depends_on:
+      - biotik-back
+

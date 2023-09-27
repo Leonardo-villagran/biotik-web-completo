@@ -1,0 +1,17 @@
+#back
+biotik-back/node_modules
+biotik-back/.env
+biotik-back/package-lock.json
+
+#front
+
+biotik-web/dist
+biotik-web/node_modules
+biotik-web/.env
+biotik-web/package-lock.json
+
+#ruta principal
+.env
+pg_backup
+pgadmin_data
+postgres_data
