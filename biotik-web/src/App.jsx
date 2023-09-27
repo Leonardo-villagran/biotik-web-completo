@@ -11,7 +11,7 @@ import axios from 'axios';
 
 function App() {
 
-  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5035/datos';
+  const apiUrl = import.meta.env.VITE_API_URL || 'http://web.biotico.cl:5035/datos';
   
   const [data, setData] = useState([]);
 
