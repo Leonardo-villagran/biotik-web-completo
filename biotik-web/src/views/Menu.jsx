@@ -1,6 +1,13 @@
+import { motion } from 'framer-motion';
+
 export default function Menu() {
     return (
-        <div className="card bg-gradient">
+        <motion.div className="card bg-gradient"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}  
+            transition={{delay: 0.3, duration: 1, type: 'tween'}}
+
+        >
             <div className="card-body">
                 <nav className="hero-nav">
                     <div className="d-flex flex-wrap">
@@ -13,7 +20,7 @@ export default function Menu() {
                     </div>
                 </nav>
             </div>
-        </div>
+        </motion.div>
 
 
 

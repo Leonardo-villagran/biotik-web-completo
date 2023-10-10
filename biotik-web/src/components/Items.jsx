@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 // eslint-disable-next-line react/prop-types
 export default function Items({ data }) {
     return (
@@ -5,7 +7,11 @@ export default function Items({ data }) {
             {
                 // eslint-disable-next-line react/prop-types
                 data.map((item) => (
-                    <div key={item.id_web} className="row">
+                    <motion.div key={item.id_web} className="row"
+                        initial={{ y:'100vw',opacity: 0 }}
+                        animate={{ y:0, opacity: 1 }}
+                        transition={{ duration: 1, type: 'tween' }}
+                    >
                         <div className="col-md-8">
                             <div className="card h-100">
                                 <div id={item.id_css}>
@@ -19,7 +25,7 @@ export default function Items({ data }) {
                                 <img src={item.imagen} className="card-img-top" alt="Imagen de BiotiK" />
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
         </>
     );
