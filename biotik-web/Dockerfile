@@ -16,6 +16,10 @@ RUN npm install
 # Copiar el resto de los archivos del frontend
 COPY . .
 
+# Define environment variable
+ARG VITE_API_URL
+ENV VITE_API_URL=${VITE_API_URL}
+
 #ENV VITE_API_URL=http://localhost:5035/datos
 # ENV VITE_API_URL=$VITE_API_URL
 

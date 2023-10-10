@@ -64,8 +64,14 @@ services:
     restart: always
 
   biotik-web:
+    env_file:
+      - .env  # Cargar variables desde el archivo .env en la ruta base
+    environment:
+      - VITE_API_URL=${VITE_API_URL}
     build:
       context: ./biotik-web
+      args:
+        VITE_API_URL: ${VITE_API_URL}  # Pasa la variable al Dockerfile
     container_name: biotik-web
     ports:
       - "3035:3000"
