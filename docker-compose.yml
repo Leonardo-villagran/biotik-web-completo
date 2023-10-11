@@ -20,7 +20,7 @@ services:
       - "5435:5432"
     networks:
       - mi-red-biotik
-    restart: always
+    restart: ${RESTART_POLICY}
 
   biotik-back:
     build:
@@ -42,7 +42,7 @@ services:
       - mi-red-biotik
     depends_on:
       - postgres-biotik
-    restart: always
+    restart: ${RESTART_POLICY}
 
 
   pgadmin:
@@ -61,7 +61,7 @@ services:
       - mi-red-biotik
     volumes:
       - ./pgadmin_data:/var/lib/pgadmin
-    restart: always
+    restart: ${RESTART_POLICY}
 
   biotik-web:
     env_file:
@@ -79,5 +79,5 @@ services:
       - mi-red-biotik
     depends_on:
       - biotik-back
-    restart: always
+    restart: ${RESTART_POLICY}
 
