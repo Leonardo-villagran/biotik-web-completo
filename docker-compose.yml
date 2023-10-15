@@ -45,23 +45,23 @@ services:
     restart: ${RESTART_POLICY}
 
 
-  pgadmin:
-    image: dpage/pgadmin4:7.7
-    container_name: pgadmin-biotik
-    env_file:
-      - .env  # Cargar variables desde el archivo .env en la ruta base
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
-      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
-      - PGADMIN_LISTEN_ADDRESS=${PGADMIN_LISTEN_ADDRESS}
-      - PGADMIN_SERVER_MODE=${PGADMIN_SERVER_MODE}
-    ports:
-      - "8035:80"
-    networks:
-      - mi-red-biotik
-    volumes:
-      - ./pgadmin_data:/var/lib/pgadmin
-    restart: ${RESTART_POLICY}
+  # pgadmin:
+  #   image: dpage/pgadmin4:7.7
+  #   container_name: pgadmin-biotik
+  #   env_file:
+  #     - .env  # Cargar variables desde el archivo .env en la ruta base
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+  #     - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+  #     - PGADMIN_LISTEN_ADDRESS=${PGADMIN_LISTEN_ADDRESS}
+  #     - PGADMIN_SERVER_MODE=${PGADMIN_SERVER_MODE}
+  #   ports:
+  #     - "8035:80"
+  #   networks:
+  #     - mi-red-biotik
+  #   volumes:
+  #     - ./pgadmin_data:/var/lib/pgadmin
+  #   restart: ${RESTART_POLICY}
 
   biotik-web:
     env_file:

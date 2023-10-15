@@ -26,24 +26,14 @@ POSTGRES_USER=odk_web
 POSTGRES_PASSWORD=nuevopassword
 POSTGRES_DB=biotik
 
-# PgAdmin
-PGADMIN_DEFAULT_EMAIL=correo@ejemplo.com
-PGADMIN_DEFAULT_PASSWORD=nuevopassword
-PGADMIN_LISTEN_ADDRESS=0.0.0.0
-PGADMIN_SERVER_MODE=true
+## Políticas del servidor
+
+#RESTART_POLICY=always
+RESTART_POLICY=no
 ```
 
 Asegúrese de cambiar los valores proporcionados a valores seguros y específicos de su configuración.
 
-
-### Archivo `.env` en la carpeta biotik-web
-
-Es necesario crear una variable de entorno para la URL del backend. Para ello, cree un archivo `.env` en la carpeta `biotik-web` con el siguiente contenido (esto es solo para la construcción del contenedor del frontend en su Dockerfile):
-
-```dotenv
-## Front Docker
-VITE_API_URL=http://127.0.0.1:5035/datos
-```
 ## Docker Compose
 
 El archivo `docker-compose.yml` define los servicios necesarios para ejecutar la aplicación. Incluye un servicio para PostgreSQL, el backend Express, PgAdmin y el frontend React Vite.
@@ -60,6 +50,16 @@ Esto levantará todos los servicios y la aplicación estará disponible en:
 
 - Backend: [http://127.0.0.1:5035](http://127.0.0.1:5035)
 - Frontend: [http://127.0.0.1:3035](http://127.0.0.1:3035)
-- PgAdmin: [http://127.0.0.1:8035](http://127.0.0.1:8035)
 
 Asegúrese de que los puertos especificados no estén en uso y ajuste según sea necesario. 
+
+## Tecnologías Utilizadas
+
+La aplicación utiliza las siguientes tecnologías y herramientas:
+
+- [React](https://reactjs.org/): Una biblioteca de JavaScript para construir interfaces de usuario.
+- [Bootstrap](https://getbootstrap.com/): Un marco de diseño CSS para la creación de páginas web receptivas y modernas.
+- [Vite](https://vitejs.dev/): Un marco de desarrollo web rápido que permite una experiencia de desarrollo extremadamente rápida.
+- [Node.js](https://nodejs.org/): Un entorno de ejecución para JavaScript del lado del servidor.
+- [Express](https://expressjs.com/): Un marco de aplicación web para Node.js.
+- [PostgreSQL](https://www.postgresql.org/): Un sistema de gestión de bases de datos relacional de código abierto.

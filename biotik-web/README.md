@@ -88,3 +88,7 @@ La aplicación utiliza las siguientes tecnologías y herramientas:
 
 - [React](https://reactjs.org/): Una biblioteca de JavaScript para construir interfaces de usuario.
 - [Bootstrap](https://getbootstrap.com/): Un marco de diseño CSS para la creación de páginas web receptivas y modernas.
+- [Vite](https://vitejs.dev/): Un marco de desarrollo web rápido que permite una experiencia de desarrollo extremadamente rápida.
+- [Node.js](https://nodejs.org/): Un entorno de ejecución para JavaScript del lado del servidor.
+- [Express](https://expressjs.com/): Un marco de aplicación web para Node.js.
+- [PostgreSQL](https://www.postgresql.org/): Un sistema de gestión de bases de datos relacional de código abierto.
