@@ -11,22 +11,15 @@ Antes de ejecutar la aplicación, es necesario configurar algunas variables de e
 ```dotenv
 ## Back Docker
 BACK_PORT=5000
-DB_PORT=5435
-DB_HOST=postgres-biotik
-DB_USER=odk_web
+DB_PORT=5432
+DB_HOST=localhost
+DB_USER=postgres
 DB_PASSWORD=nuevopassword
 DB_NAME=biotik
 JWT_SECRET=secreto
 
 ## Front Docker
 VITE_API_URL=http://127.0.0.1:5035/datos
-
-# Base de datos
-POSTGRES_USER=odk_web
-POSTGRES_PASSWORD=nuevopassword
-POSTGRES_DB=biotik
-
-## Políticas del servidor
 
 #RESTART_POLICY=always
 RESTART_POLICY=no
