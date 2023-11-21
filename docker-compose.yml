@@ -1,7 +1,8 @@
 version: '3.9'
 
 networks:
-  mi-red-biotik:
+  postgres_normal_mi-red-postgres:
+    external: true
 
 services:
   biotik-back:
@@ -21,7 +22,7 @@ services:
     ports:
       - "5035:5000"
     networks:
-      - mi-red-biotik
+      - postgres_normal_mi-red-postgres
     restart: ${RESTART_POLICY}
 
   biotik-web:
@@ -37,7 +38,7 @@ services:
     ports:
       - "3035:3000"
     networks:
-      - mi-red-biotik
+      - postgres_normal_mi-red-postgres
     depends_on:
       - biotik-back
     restart: ${RESTART_POLICY}
