@@ -27,7 +27,7 @@ export default function Header() {
                 </a></motion.button>
                 <button className="custom-button">
                     {/* <a href="https://web.biotico.cl/odk-web/" target="_blank" rel="noopener noreferrer" className="button-link"> */}
-                    <a href="https://odk-web-frontend.biotik.cl/" target="_blank" rel="noopener noreferrer" className="button-link"> 
+                    <a href="https://gestion.biotik.cl/" target="_blank" rel="noopener noreferrer" className="button-link"> 
                         Gestión
                     </a>
                 </button>
