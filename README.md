@@ -1,6 +1,6 @@
 # Proyecto Biotik
 
-Este repositorio contiene los archivos necesarios para ejecutar la aplicación Biotik, que incluye un servidor Express para el backend, una aplicación React Vite para el frontend, y utiliza PostgreSQL como base de datos.
+Este repositorio contiene los archivos necesarios para ejecutar la aplicación Biotik, que incluye un servidor Express para el backend, una aplicación React Vite para el frontend, y utiliza PostgreSQL como base de datos. Además de ser la página principal de la empresa, permite dar acceso a los usuarios a la información de los proyectos que se encuentran en el servidor ODK Central y al sistema de gestión de información de ODK.
 
 ## Configuración del entorno
 
