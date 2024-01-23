@@ -1,8 +1,29 @@
 # Proyecto Biotik
 
+![BiotiK Logo](https://github.com/Leonardo-villagran/biotik-web/blob/main/public/images/logo.png?raw=true)
+
+## Indice
+
+- [Descripción](#descripción)
+- [Capturas de Pantalla](#capturas-de-pantalla)
+- [Configuración del Entorno](#configuración-del-entorno)
+  - [Archivo `.env`](#archivo-env-en-la-carpeta-base)
+- [Docker Compose](#docker-compose)
+- [Ejecución](#ejecución)
+- [Tecnologías Utilizadas](#tecnologías-utilizadas)
+
+### Descripción
+
 Este repositorio contiene los archivos necesarios para ejecutar la aplicación Biotik, que incluye un servidor Express para el backend, una aplicación React Vite para el frontend, y utiliza PostgreSQL como base de datos. Además de ser la página principal de la empresa, permite dar acceso a los usuarios a la información de los proyectos que se encuentran en el servidor ODK Central y al sistema de gestión de información de ODK.
 
-## Configuración del entorno
+### Capturas de Pantalla
+
+![Pantalla de Inicio](https://github.com/Leonardo-villagran/biotik-web/blob/main/public/images/screenshot1.png?raw=true)
+
+
+![Proceso de Trabajo](https://github.com/Leonardo-villagran/biotik-web/blob/main/public/images/screenshot2.png?raw=true)
+
+### Configuración del entorno
 
 Antes de ejecutar la aplicación, es necesario configurar algunas variables de entorno. Se proporciona un archivo `.env` en la carpeta base para la configuración general, y cada componente (backend y frontend) para las configuraciones específicas.
 
@@ -27,7 +48,7 @@ RESTART_POLICY=no
 
 Asegúrese de cambiar los valores proporcionados a valores seguros y específicos de su configuración.
 
-## Docker Compose
+### Docker Compose
 
 El archivo `docker-compose.yml` define los servicios necesarios para ejecutar la aplicación. Incluye un servicio para PostgreSQL, el backend Express, PgAdmin y el frontend React Vite.
 
@@ -46,7 +67,7 @@ Esto levantará todos los servicios y la aplicación estará disponible en:
 
 Asegúrese de que los puertos especificados no estén en uso y ajuste según sea necesario. 
 
-## Tecnologías Utilizadas
+### Tecnologías Utilizadas
 
 La aplicación utiliza las siguientes tecnologías y herramientas:
 
