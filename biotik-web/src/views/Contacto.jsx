@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardMedia, Box, Typography, Stack } from '@mui/material';
+import { useInView } from 'react-intersection-observer';
 import '../App.css'; // Asegúrate de importar el archivo CSS
 
 export default function Contacto() {
@@ -9,12 +10,18 @@ export default function Contacto() {
         linkedin: 'https://www.linkedin.com/in/ejemplo'
     };
 
+    const { ref, inView } = useInView({
+        triggerOnce: false,
+        threshold: 0.1,
+    });
+
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, marginTop: '16px' }}>
             <Box sx={{ width: '100%', boxSizing: 'border-box', display: 'flex', marginBottom: '16px' }}>
                 <motion.div
-                    initial={{ y: '100vw', opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
+                    ref={ref}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: inView ? 1 : 0.5 }}
                     transition={{ duration: 1, type: 'tween' }}
                     style={{ flex: 1, display: 'flex' }}
                 >
@@ -25,7 +32,7 @@ export default function Contacto() {
                                     <Typography 
                                         variant="h5" 
                                         component="div" 
-                                        id="contact-title" // Agrega el id aquí
+                                        id="contact-title" 
                                         sx={{ color: 'white', marginBottom: '16px' }} // Agrega margen inferior
                                     >
                                         Contacto
@@ -71,14 +78,21 @@ export default function Contacto() {
                                     </Typography>
                                 </CardContent>
                             </Box>
-                            <Box sx={{ flex: 1, height: '100%', backgroundColor: 'black' }}>
-                                <CardMedia
-                                    component="img"
-                                    image="./images/7.jpg" // Asegúrate de que la ruta sea correcta
-                                    alt="Imagen de Contacto"
-                                    className="custom-card-media"
-                                    sx={{ backgroundColor: 'black' }}
-                                />
+                            <Box sx={{ flex: 1, height: '100%', backgroundColor: 'black', overflow: 'hidden' }}>
+                                <motion.div
+                                    initial={{ scale: 1 }}
+                                    animate={{ scale: inView ? 1.1 : 1 }}
+                                    transition={{ duration: 0.5 }}
+                                    style={{ height: '100%' }}
+                                >
+                                    <CardMedia
+                                        component="img"
+                                        image="./images/7.jpg" // Asegúrate de que la ruta sea correcta
+                                        alt="Imagen de Contacto"
+                                        className="custom-card-media"
+                                        sx={{ backgroundColor: 'black', height: '100%' }}
+                                    />
+                                </motion.div>
                             </Box>
                         </Stack>
                     </Card>
