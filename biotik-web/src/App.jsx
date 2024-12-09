@@ -6,6 +6,7 @@ import Items from './components/Items';// Updated import statement to match corr
 import ScrollButton from './components/ScrollButton';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Contacto from './views/Contacto';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             <Header />
             <Menu />
             <Items data={data} />
+            <Contacto/>
             <ScrollButton />
           </div>
     );
