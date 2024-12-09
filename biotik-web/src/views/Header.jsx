@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 export default function Header() {
 
-    const logo = './images/logo.png';
+    const logo = './images/logo3.png';
     const logoTexto = './images/logo_texto.png';
 
     return (
