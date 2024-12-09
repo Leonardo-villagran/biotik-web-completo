@@ -6,7 +6,8 @@ export default function ScrollButton() {
 
     return (
         <button className="scroll-to-top" onClick={scrollToTop}>
-            Volver al menú
+            Volver al<br/>
+            Menú
         </button>
     )
 }

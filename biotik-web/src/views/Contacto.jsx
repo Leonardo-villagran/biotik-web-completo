@@ -17,7 +17,7 @@ export default function Contacto() {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, marginTop: '16px' }}>
-            <Box sx={{ width: '100%', boxSizing: 'border-box', display: 'flex', marginBottom: '16px' }}>
+            <Box sx={{ width: '100%', boxSizing: 'border-box', display: 'flex', marginBottom: '16px', position: 'relative' }}>
                 <motion.div
                     ref={ref}
                     initial={{ opacity: 0 }}
@@ -78,7 +78,7 @@ export default function Contacto() {
                                     </Typography>
                                 </CardContent>
                             </Box>
-                            <Box sx={{ flex: 1, height: '100%', backgroundColor: 'black', overflow: 'hidden' }}>
+                            <Box sx={{ flex: 1, height: '100%', backgroundColor: 'black', overflow: 'hidden', position: 'relative' }}>
                                 <motion.div
                                     initial={{ scale: 1 }}
                                     animate={{ scale: inView ? 1.1 : 1 }}

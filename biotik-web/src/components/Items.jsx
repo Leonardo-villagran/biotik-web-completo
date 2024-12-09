@@ -17,7 +17,7 @@ export default function Items({ data }) {
                     });
 
                     return (
-                        <Box key={item.id_web} sx={{ width: '100%', boxSizing: 'border-box', display: 'flex' }}>
+                        <Box key={item.id_web} sx={{ width: '100%', boxSizing: 'border-box', display: 'flex', position: 'relative' }}>
                             <motion.div
                                 ref={ref}
                                 initial={{ opacity: 0 }}
@@ -52,7 +52,7 @@ export default function Items({ data }) {
                                                 </Typography>
                                             </CardContent>
                                         </Box>
-                                        <Box sx={{ flex: 1, height: '100%', backgroundColor: 'black', overflow: 'hidden' }}>
+                                        <Box sx={{ flex: 1, height: '100%', backgroundColor: 'black', overflow: 'hidden', position: 'relative' }}>
                                             <motion.div
                                                 initial={{ scale: 1 }}
                                                 animate={{ scale: inView ? 1.1 : 1 }}
