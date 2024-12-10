@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Card, CardContent, CardMedia, Box, Typography, Stack } from '@mui/material';
+import { Card, CardContent, CardMedia, Box, Typography, Stack, useMediaQuery } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
 import '../App.css'; // Asegúrate de importar el archivo CSS
 
@@ -15,6 +15,8 @@ export default function Contacto() {
         threshold: 0.1,
     });
 
+    const isSmallScreen = useMediaQuery('(max-width:550px)');
+
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, marginTop: '16px' }}>
             <Box sx={{ width: '100%', boxSizing: 'border-box', display: 'flex', marginBottom: '16px', position: 'relative' }}>
@@ -26,8 +28,11 @@ export default function Contacto() {
                     style={{ flex: 1, display: 'flex' }}
                 >
                     <Card className="custom-card">
-                        <Stack direction="row" sx={{ height: '100%', backgroundColor: 'black' }}>
-                            <Box sx={{ flex: 2, backgroundColor: 'black' }}>
+                        <Stack
+                            direction={isSmallScreen ? 'column' : 'row'}
+                            sx={{ height: '100%', backgroundColor: 'black' }}
+                        >
+                            <Box sx={{ flex: 2, backgroundColor: 'black', width: isSmallScreen ? '100%' : 'auto' }}>
                                 <CardContent className="custom-card-content">
                                     <Typography 
                                         variant="h5" 
@@ -78,7 +83,7 @@ export default function Contacto() {
                                     </Typography>
                                 </CardContent>
                             </Box>
-                            <Box sx={{ flex: 1, height: '100%', backgroundColor: 'black', overflow: 'hidden', position: 'relative' }}>
+                            <Box sx={{ flex: 1, height: '100%', backgroundColor: 'black', overflow: 'hidden', width: isSmallScreen ? '100%' : 'auto' }}>
                                 <motion.div
                                     initial={{ scale: 1 }}
                                     animate={{ scale: inView ? 1.1 : 1 }}
@@ -90,7 +95,7 @@ export default function Contacto() {
                                         image="./images/7.jpg" // Asegúrate de que la ruta sea correcta
                                         alt="Imagen de Contacto"
                                         className="custom-card-media"
-                                        sx={{ backgroundColor: 'black', height: '100%' }}
+                                        sx={{ backgroundColor: 'black', height: '100%', width: '100%' }}
                                     />
                                 </motion.div>
                             </Box>
