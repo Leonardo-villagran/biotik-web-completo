@@ -30,6 +30,7 @@ export default function Menu() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 1, type: 'tween' }}
             className="card bg-gradient"
+            style={{ marginBottom: '20px' }}  // Añadido margen inferior
         >
             <Box className="card-body">
                 <nav className="hero-nav">

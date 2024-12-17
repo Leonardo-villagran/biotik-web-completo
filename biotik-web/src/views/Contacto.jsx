@@ -1,13 +1,15 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react-hooks/rules-of-hooks */
 import { motion } from 'framer-motion';
-import { Card, CardContent, CardMedia, Box, Typography, Stack, useMediaQuery } from '@mui/material';
+import { Card, CardContent, Box, Typography, Stack, useMediaQuery } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
-import '../App.css'; // Asegúrate de importar el archivo CSS
+import '../App.css';
 
 export default function Contacto() {
     const contactInfo = {
         email: 'contacto@biotik.cl',
-        web: 'www.biotik.cl',
-        linkedin: 'https://www.linkedin.com/in/ejemplo'
+        web: 'https://www.biotik.cl',
+        linkedin: 'https://www.linkedin.com/in/ejemplo',
     };
 
     const { ref, inView } = useInView({
@@ -15,94 +17,89 @@ export default function Contacto() {
         threshold: 0.1,
     });
 
-    const isSmallScreen = useMediaQuery('(max-width:550px)');
+    const isSmallScreen = useMediaQuery('(max-width:500px)');
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, marginTop: '16px' }}>
-            <Box sx={{ width: '100%', boxSizing: 'border-box', display: 'flex', marginBottom: '16px', position: 'relative' }}>
-                <motion.div
-                    ref={ref}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: inView ? 1 : 0.5 }}
-                    transition={{ duration: 1, type: 'tween' }}
-                    style={{ flex: 1, display: 'flex' }}
+        <Box className="w-full box-border flex relative h-auto">
+            <motion.div
+                ref={ref}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: inView ? 1 : 0.5 }}
+                transition={{ duration: 1, type: 'tween' }}
+                className="flex w-full h-full"
+            >
+                <Card
+                    className={`custom-card bg-black text-white shadow-lg rounded-lg overflow-hidden w-full 
+            border-2 border-[#d3d3d3] hover:border-[3px] hover:border-gradient-to-r from-green-400 via-blue-500 to-purple-500 
+            transition-transform duration-500 hover:shadow-2xl hover:scale-105`}
                 >
-                    <Card className="custom-card">
-                        <Stack
-                            direction={isSmallScreen ? 'column' : 'row'}
-                            sx={{ height: '100%', backgroundColor: 'black' }}
-                        >
-                            <Box sx={{ flex: 2, backgroundColor: 'black', width: isSmallScreen ? '100%' : 'auto' }}>
-                                <CardContent className="custom-card-content">
-                                    <Typography 
-                                        variant="h5" 
-                                        component="div" 
-                                        id="contact-title" 
-                                        sx={{ color: 'white', marginBottom: '16px' }} // Agrega margen inferior
-                                    >
-                                        Contacto
-                                    </Typography>
-                                    <Typography 
-                                        variant="body1" 
-                                        sx={{ 
-                                            color: 'white', 
-                                            fontSize: '1.25rem', 
-                                            lineHeight: '1.6', 
-                                            margin: '16px 0', 
-                                            whiteSpace: 'pre-line', // Para respetar los saltos de línea
-                                            textAlign: 'justify' // Justificar el texto
-                                        }}
-                                    >
-                                        Email: {contactInfo.email}
-                                    </Typography>
-                                    <Typography 
-                                        variant="body1" 
-                                        sx={{ 
-                                            color: 'white', 
-                                            fontSize: '1.25rem', 
-                                            lineHeight: '1.6', 
-                                            margin: '16px 0', 
-                                            whiteSpace: 'pre-line', // Para respetar los saltos de línea
-                                            textAlign: 'justify' // Justificar el texto
-                                        }}
-                                    >
-                                        Web: {contactInfo.web}
-                                    </Typography>
-                                    <Typography 
-                                        variant="body1" 
-                                        sx={{ 
-                                            color: 'white', 
-                                            fontSize: '1.25rem', 
-                                            lineHeight: '1.6', 
-                                            margin: '16px 0', 
-                                            whiteSpace: 'pre-line', // Para respetar los saltos de línea
-                                            textAlign: 'justify' // Justificar el texto
-                                        }}
-                                    >
-                                        LinkedIn: <a href={contactInfo.linkedin} style={{ color: 'white' }} target="_blank" rel="noopener noreferrer">{contactInfo.linkedin}</a>
-                                    </Typography>
-                                </CardContent>
-                            </Box>
-                            <Box sx={{ flex: 1, height: '100%', backgroundColor: 'black', overflow: 'hidden', width: isSmallScreen ? '100%' : 'auto' }}>
-                                <motion.div
-                                    initial={{ scale: 1 }}
-                                    animate={{ scale: inView ? 1.1 : 1 }}
-                                    transition={{ duration: 0.5 }}
-                                    style={{ height: '100%' }}
+                    <Stack
+                        direction={isSmallScreen ? 'column' : 'row'}
+                        className="h-full"
+                    >
+                        {/* Caja de contenido */}
+                        <Box className="w-full bg-black h-full">
+                            <CardContent className="custom-card-content p-4 h-full">
+                                <Typography
+                                    variant="h5"
+                                    component="div"
+                                    id="contact-title"
+                                    className="text-white mb-4"
                                 >
-                                    <CardMedia
-                                        component="img"
-                                        image="./images/7.jpg" // Asegúrate de que la ruta sea correcta
-                                        alt="Imagen de Contacto"
-                                        className="custom-card-media"
-                                        sx={{ backgroundColor: 'black', height: '100%', width: '100%' }}
-                                    />
-                                </motion.div>
-                            </Box>
-                        </Stack>
-                    </Card>
-                </motion.div>
-            </Box>
+                                    Contacto
+                                </Typography>
+
+                                {/* Email con enlace mailto */}
+                                <Typography
+                                    variant="body1"
+                                    className="text-white text-lg leading-7 my-6 whitespace-pre-line text-justify"
+                                >
+                                    Email:{' '}
+                                    <a
+                                        href={`mailto:${contactInfo.email}`}
+                                        className="text-white hover:text-gray-300"
+                                    >
+                                        {contactInfo.email}
+                                    </a>
+                                </Typography>
+
+                                {/* Web con enlace activo */}
+                                <Typography
+                                    variant="body1"
+                                    className="text-white text-lg leading-7 my-6 whitespace-pre-line text-justify"
+                                >
+                                    Web:{' '}
+                                    <a
+                                        href={contactInfo.web}
+                                        className="text-white hover:text-gray-300"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {contactInfo.web}
+                                    </a>
+                                </Typography>
+
+                                {/* LinkedIn */}
+                                <Typography
+                                    variant="body1"
+                                    className="text-white text-lg leading-7 my-6 whitespace-pre-line text-justify"
+                                >
+                                    LinkedIn:{' '}
+                                    <a
+                                        href={contactInfo.linkedin}
+                                        className="text-white hover:text-gray-300"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {contactInfo.linkedin}
+                                    </a>
+                                </Typography>
+                            </CardContent>
+                        </Box>
+                    </Stack>
+                </Card>
+            </motion.div>
         </Box>
+
     );
 }

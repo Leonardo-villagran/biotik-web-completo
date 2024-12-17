@@ -29,9 +29,7 @@ function App() {
   console.log('API:', apiUrl);
   //console.log('Data', data);
 
-
     return (
-
           <div className="container">
             <Header />
             <Menu />

@@ -3,7 +3,7 @@ body {
   background-color: #000 !important;
   color: #fff !important;
 }
-.container{
+.container {
   background-color: #000;
   color: #fff;
 }
@@ -19,11 +19,11 @@ h1 {
 .card {
   background: linear-gradient(to bottom, #333, #000);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #d3d3d3;
 }
 /* Estilo para los enlaces */
 a {
-  color: white !important; /* Color naranja */
+  color: white !important; /* Color blanco */
   text-decoration: none; /* Eliminar el subrayado */
   cursor: pointer; /* Cambiar el cursor a un puntero */
   background-color: transparent; /* Fondo transparente por defecto */
@@ -98,7 +98,7 @@ a {
 
 .card.bg-gradient {
   background: linear-gradient(to bottom, #f9f9f9, #040200); /* Cambia los colores según tus preferencias */
-  color: #fff;
+  color: #d3d3d3;
   text-align: center;
   border: none; /* Elimina el borde de la card si lo deseas */
 }
@@ -181,15 +181,26 @@ a {
 
 /* Estilos personalizados para las Card en Items */
 .custom-card {
-  background-color: black; /* Fondo negro */
-  color: white; /* Texto blanco */
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: black;
+  /* Fondo negro */
+  color: white;
+  /* Texto blanco */
+  border: 1px solid #d3d3d3 !important;
+  /* Asegúrate de que el borde gris sea aplicado */
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%; /* Asegura que la tarjeta ocupe todo el ancho */
-  box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho y alto */
-  margin-bottom: 16px; /* Añade margen inferior para separación */
+  width: 100%;
+  /* Asegura que la tarjeta ocupe todo el ancho */
+  box-sizing: border-box;
+  /* Asegura que el padding y el borde se incluyan en el ancho y alto */
+  margin-bottom: 16px;
+  /* Añade margen inferior para separación */
+}
+
+.custom-card-border {
+  border: 1px solid #d3d3d3 !important;
+  /* Borde gris */
 }
 
 .custom-card-content {
@@ -201,4 +212,5 @@ a {
   height: 100%; /* Ocupa todo el alto de la card */
   background-color: black; /* Fondo negro */
   object-fit: cover; /* Asegura que la imagen cubra todo el área */
+  width: 100%;
 }

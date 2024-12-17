@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardMedia, Box, Typography, Stack, useMediaQuery } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
-import '../App.css'; // Asegúrate de importar el archivo CSS
+import '../App.css';
 
 // Individual Item component
 function Item({ item, isSmallScreen }) {
@@ -13,57 +13,66 @@ function Item({ item, isSmallScreen }) {
     });
 
     return (
-        <Box sx={{ width: '100%', boxSizing: 'border-box', display: 'flex', position: 'relative' }}>
+        <Box className="w-full box-border flex relative h-auto">
             <motion.div
                 ref={ref}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: inView ? 1 : 0.5 }}
                 transition={{ duration: 1, type: 'tween' }}
-                style={{ flex: 1, display: 'flex' }}
+                className="flex w-full h-full"
             >
-                <Card className="custom-card">
+                <Card
+                    className={`custom-card bg-black text-white shadow-lg rounded-lg overflow-hidden w-full 
+                        border-2 border-[#000000] hover:border-[3px] hover:border-gradient-to-r from-green-400 via-blue-500 to-purple-500 
+                        transition-transform duration-500 hover:shadow-2xl hover:scale-105 relative`}
+                    sx={{
+                        // Añadir una sombra adicional para crear el efecto de elevación
+                        boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.2)',
+                        zIndex: 10,  // Mantiene la caja por encima de los otros elementos
+                    }}
+                >
                     <Stack
                         direction={isSmallScreen ? 'column' : 'row'}
-                        sx={{ height: '100%', backgroundColor: 'black' }}
+                        className="h-full"
                     >
-                        <Box sx={{ flex: 2, backgroundColor: 'black', width: isSmallScreen ? '100%' : 'auto' }}>
-                            <CardContent className="custom-card-content">
-                                <Typography 
-                                    variant="h5" 
-                                    component="div" 
-                                    id={item.id_css} 
-                                    sx={{ color: 'white', marginBottom: '16px' }}
+                        {/* Contenedor del texto */}
+                        <Box
+                            className={`flex-1 bg-black h-full p-4 ${isSmallScreen ? 'w-full' : 'w-1/2'}`}
+                        >
+                            <CardContent className="custom-card-content h-full">
+                                <Typography
+                                    variant="h5"
+                                    component="div"
+                                    id={item.id_css}
+                                    className="text-white mb-4"
                                 >
                                     {item.titulo}
                                 </Typography>
-                                <Typography 
-                                    variant="body1" 
-                                    sx={{ 
-                                        color: 'white', 
-                                        fontSize: '1.25rem', 
-                                        lineHeight: '1.6', 
-                                        margin: '26px 0', 
-                                        whiteSpace: 'pre-line',
-                                        textAlign: 'justify'
-                                    }}
+                                <Typography
+                                    variant="body1"
+                                    className="text-white text-lg leading-7 my-6 whitespace-pre-line"
+                                    sx={{ textAlign: 'justify' }}
                                 >
                                     {item.contenido}
                                 </Typography>
                             </CardContent>
                         </Box>
-                        <Box sx={{ flex: 1, height: '100%', backgroundColor: 'black', overflow: 'hidden', width: isSmallScreen ? '100%' : 'auto' }}>
+
+                        {/* Contenedor de la imagen */}
+                        <Box
+                            className={`flex-1 bg-black h-full overflow-hidden ${isSmallScreen ? 'w-full' : 'w-1/2'}`}
+                        >
                             <motion.div
                                 initial={{ scale: 1 }}
                                 animate={{ scale: inView ? 1.1 : 1 }}
                                 transition={{ duration: 0.5 }}
-                                style={{ height: '100%' }}
+                                className="h-full w-full"
                             >
                                 <CardMedia
                                     component="img"
                                     image={item.imagen}
                                     alt="Imagen de BiotiK"
-                                    className="custom-card-media"
-                                    sx={{ backgroundColor: 'black', height: '100%', width: '100%' }}
+                                    className="custom-card-media h-full w-full object-cover"
                                 />
                             </motion.div>
                         </Box>
@@ -79,7 +88,7 @@ export default function Items({ data }) {
     const isSmallScreen = useMediaQuery('(max-width:500px)');
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <Box className="flex flex-col gap-4">
             {data.map((item) => (
                 <Item key={item.id_web} item={item} isSmallScreen={isSmallScreen} />
             ))}
