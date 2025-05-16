@@ -1,6 +1,6 @@
 # Proyecto Biotik
 
-![BiotiK Logo](https://github.com/Leonardo-villagran/biotik-web/blob/main/public/images/logo3.png?raw=true)
+![BiotiK Logo](https://raw.githubusercontent.com/Leonardo-villagran/biotik-web-completo/refs/heads/main/biotik-web/public/images/logo3.png)
 
 ## Indice
 
