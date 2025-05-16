@@ -1,5 +1,3 @@
-version: '3.9'
-
 networks:
   postgres_normal_mi-red-postgres:
     external: true
