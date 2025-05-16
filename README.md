@@ -18,10 +18,10 @@ Este repositorio contiene los archivos necesarios para ejecutar la aplicación B
 
 ### Capturas de Pantalla
 
-![Pantalla de Inicio](https://github.com/Leonardo-villagran/biotik-web/blob/main/public/images/screenshot1.png?raw=true)
+![Pantalla de Inicio](https://raw.githubusercontent.com/Leonardo-villagran/biotik-web-completo/refs/heads/main/biotik-web/public/images/screenshot3.png)
 
 
-![Proceso de Trabajo](https://github.com/Leonardo-villagran/biotik-web/blob/main/public/images/screenshot2.png?raw=true)
+![Proceso de Trabajo](https://raw.githubusercontent.com/Leonardo-villagran/biotik-web-completo/refs/heads/main/biotik-web/public/images/screenshot4.png)
 
 ### Configuración del entorno
 
