@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/rules-of-hooks */
 
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Typography, Card, CardContent, Stack } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import '../App.css';
@@ -20,50 +18,33 @@ export default function Footer() {
     });
 
     return (
-        <motion.div
+        <motion.footer
             ref={ref}
             initial={{ opacity: 0 }}
             animate={{ opacity: inView ? 1 : 0.5 }}
             transition={{ duration: 1, type: 'tween' }}
-            className="flex justify-center items-center bg-black text-white py-8"
+            className=" bg-neutral-900 text-neutral-300 rounded-t-xl "
+            id="footer-section" // Added ID for scrolling
         >
-            <Card
-                className={`custom-card bg-black text-white shadow-lg rounded-lg overflow-hidden w-full 
-                border-2 border-[#d3d3d3] hover:border-[3px] hover:bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 
-                transition-transform duration-500 hover:shadow-2xl hover:scale-105`}
-            >
-                <CardContent className="p-4">
-                    <Typography
-                        variant="h5"
-                        component="div"
-                        id="contact-title" // Agregado el id para la conexión con el menú
-                        className="text-center mb-4"
-                    >
-                        Contacto
-                    </Typography>
-                    <Stack
-                        direction="column"
-                        spacing={2}
-                        alignItems="center"
-                    >
-                        <Typography variant="body1" className="text-center">
-                            Email: <a href={`mailto:${contactInfo.email}`} className="text-white hover:text-gray-300">{contactInfo.email}</a>
-                        </Typography>
-                        <Typography variant="body1" className="text-center">
-                            Web: <a href={contactInfo.web} className="text-white hover:text-gray-300" target="_blank" rel="noopener noreferrer">{contactInfo.web}</a>
-                        </Typography>
-                        <Typography variant="body1" className="text-center flex items-center justify-center">
-                            LinkedIn: 
-                            <a href={contactInfo.linkedin} className="text-white hover:text-gray-300 flex items-center ml-2" target="_blank" rel="noopener noreferrer">
-                                <LinkedInIcon className="mr-2" /> LinkedIn
-                            </a>
-                        </Typography>
-                        <Typography variant="body2" className="text-center mt-4">
-                            &copy; {new Date().getFullYear()} BiotiK. Todos los derechos reservados.
-                        </Typography>
-                    </Stack>
-                </CardContent>
-            </Card>
-        </motion.div>
+            <nav className="max-w-5xl mx-auto w-full flex flex-col items-center pt-8"> {/* Centering content, added pt-8 here */}
+                <ul className="flex flex-col items-center gap-y-2 text-center text-sm"> {/* Added text-sm, reduced gap-y-3 to gap-y-2 */}
+                    <li>
+                        <span className="font-semibold">Email:</span> <a href={`mailto:${contactInfo.email}`} className="text-green-600 hover:text-green-400 transition-colors duration-200">{contactInfo.email}</a>
+                    </li>
+                    <li>
+                        <span className="font-semibold">Web:</span> <a href={contactInfo.web} className="text-green-600 hover:text-green-400 transition-colors duration-200" target="_blank" rel="noopener noreferrer">{contactInfo.web}</a>
+                    </li>
+                    <li className="flex items-center gap-2">
+                        <span className="font-semibold">LinkedIn:</span>
+                        <a href={contactInfo.linkedin} className="text-green-600 hover:text-green-400 transition-colors duration-200 flex items-center" target="_blank" rel="noopener noreferrer">
+                            <span className="mr-1">🔗</span> LinkedIn
+                        </a>
+                    </li>
+                </ul>
+                <div className="text-center mt-6 text-xs text-neutral-500"> {/* Reduced mt-8 to mt-6 */}
+                    &copy; {new Date().getFullYear()} BiotiK. Todos los derechos reservados.
+                </div>
+            </nav>
+        </motion.footer>
     );
 }
